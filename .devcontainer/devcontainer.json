@@ -1,0 +1,33 @@
+{
+  "name": "xray-codespace",
+
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": ".."
+  },
+
+  "forwardPorts": [443],
+
+  "portsAttributes": {
+    "443": {
+      "label": "xray-service",
+      "protocol": "https",
+      "onAutoForward": "silent"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "4gb"
+  },
+
+  "remoteUser": "root"
+}
